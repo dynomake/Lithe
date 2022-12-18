@@ -1,6 +1,7 @@
 package net.lithe;
 
 public enum Score {
-    SINGLETON,
-    PROTOTYPE
+    SINGLETON
+//    ,
+//    PROTOTYPE
 }

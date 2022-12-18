@@ -1,16 +1,40 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group 'net.lithe'
-version '1.0-SNAPSHOT'
+group 'net.clojars.suuft'
+version '0.9.0'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation 'org.reflections:reflections:0.10.2'
+    implementation 'com.google.code.gson:gson:2.8.7'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation 'org.reflections:reflections:0.10.2'
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "clojars"
+            url = uri("https://clojars.org/repo")
+            credentials {
+                username = clojarsUserName
+                password = clojarsDeployToken
+            }
+        }
+
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }
