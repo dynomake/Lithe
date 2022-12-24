@@ -21,9 +21,7 @@ public class Lithe {
                     Object o = aClass.newInstance();
                     singletonMap.put(interface1, o);
                     singletonMap.put(aClass, o);
-                } catch (InstantiationException e) {
-                    throw new RuntimeException(e);
-                } catch (IllegalAccessException e) {
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             });
