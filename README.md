@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     // other depends
-    implementation 'net.clojars.suuft:lithe:0.9.0'
+    implementation 'net.clojars.suuft:lithe:0.9.1'
 }
 ```
 
@@ -39,7 +39,7 @@ Depend:
 <dependency>
     <groupId>net.clojars.suuft</groupId>
     <artifactId>lithe</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.1</version>
 </dependency>
 ```
 ### `Usage:`
