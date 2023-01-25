@@ -1,5 +1,4 @@
-Lithe DI
----
+## | `Lithe DI`
 A small & fast but convenient framework for working with dependencies. I'll add dependency injection soon.
 ### `Add as depend:`
 
@@ -41,7 +40,7 @@ Depend:
     <version>2.0.0</version>
 </dependency>
 ```
-### `Usage:`
+### | `Usage:`
 *You can found full example-code in:* [LINK](https://github.com/suuft/Lithe/tree/master/src/test/java/net/lithe/test)
 
 First, lets create an application class that ll run the JVM. E.i. - Main:
