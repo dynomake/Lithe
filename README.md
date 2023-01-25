@@ -76,7 +76,7 @@ public class MySessionCounter implements SessionCounter {
     }
 }
 ```
-Good job! You should write a class that register dependencies, for further using - Adept, it will inherit from `SimpleAdept`:
+Good job! You should write a class that register dependencies, for further using - Adept, it will extends from `SimpleAdept`:
 ```java
 public class CounterAdept extends SimpleAdept {
     @Override
@@ -85,7 +85,7 @@ public class CounterAdept extends SimpleAdept {
     }
 }
 ```
-Ready! So you can create an injector through the `Lithe` class and use the registered dependencies. I wrote an example in the Main class.
+Done! So you can create an injector through the `Lithe` class and use the registered dependencies. I wrote an example in the Main class.
 ```java
 public class Main {
 
