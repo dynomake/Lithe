@@ -1,10 +1,8 @@
 package net.lithe.test.impl;
 
-import net.lithe.annotation.InitateImplementation;
-import net.lithe.test.TestRepository;
+import net.lithe.test.SessionCounter;
 
-@InitateImplementation
-public class TestRepositoryImpl implements TestRepository {
+public class MySessionCounter implements SessionCounter {
 
     private int sessions;
 
