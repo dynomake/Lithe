@@ -19,11 +19,11 @@ public abstract class SimpleAdept implements AbstractAdept {
     @Override
     public <T> void register(@NonNull Score score, @NonNull Class<T> abstractClass, @NonNull Class<? extends T> implementation) {
         switch (score) {
-            case PROTOTYPE -> {
+            case PROTOTYPE: {
                 injector.getPrototypeMap().put(abstractClass, implementation);
                 break;
             }
-            case SINGLETON -> {
+            case SINGLETON: {
                 try {
                     injector.getSingletonMap().put(abstractClass, implementation.newInstance());
                 } catch (Exception e) {
@@ -43,11 +43,11 @@ public abstract class SimpleAdept implements AbstractAdept {
     @Override
     public <T> void register(@NonNull Score score, @NonNull Class<T> tClass) {
         switch (score) {
-            case PROTOTYPE -> {
+            case PROTOTYPE: {
                 injector.getPrototypeMap().put(tClass, tClass);
                 break;
             }
-            case SINGLETON -> {
+            case SINGLETON: {
                 try {
                     injector.getSingletonMap().put(tClass, tClass.newInstance());
                 } catch (Exception e) {
