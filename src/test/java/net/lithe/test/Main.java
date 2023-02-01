@@ -6,7 +6,7 @@ import net.lithe.injectior.Injector;
 public class Main {
 
     public static void main(String[] args) {
-        Injector injector = Lithe.createInjector(new CounterAdept());
+        Injector injector = Lithe.createInjector(new TestAdept());
         System.out.println("Current sessions: " + injector.getInstance(SessionCounter.class).getSessions());
 
         System.out.println("Try increment #1");

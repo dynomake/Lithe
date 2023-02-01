@@ -3,8 +3,11 @@ package net.lithe.injectior.implementation;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
+import net.lithe.injectior.Inject;
 import net.lithe.injectior.Injector;
 
+import java.lang.reflect.Field;
+import java.text.Format;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,7 +21,53 @@ public class RealInjector implements Injector {
     @Override
     public <T> T getInstance(@NonNull Class<T> t) {
         try {
-            return singletonMap.containsKey(t) ? (T) singletonMap.get(t) : (T) prototypeMap.get(t).newInstance();
+            return singletonMap.containsKey(t) ? (T) singletonMap.get(t) : createInstance(t);
         } catch (Exception e) { throw new RuntimeException(e); }
+    }
+
+    @Override
+    public void postInitialize() {
+        singletonMap.forEach((abstractClass, implementationInstance) -> {
+
+            for (Field field : implementationInstance.getClass().getDeclaredFields()) {
+                injectDeclaredField(field, implementationInstance);
+            }
+
+        });
+    }
+
+    private void injectDeclaredField(@NonNull Field field, @NonNull Object instance) {
+
+        // if field not marked as @Inject
+        if (field.getDeclaredAnnotation(Inject.class) == null) return;
+
+        try
+        {
+            // if type scope == singleton
+            if (singletonMap.containsKey(field.getType())) {
+                field.setAccessible(true);
+                field.set(instance, singletonMap.get(field.getType()));
+                return;
+            }
+
+            // if type scope == prototype
+            if (prototypeMap.containsKey(field.getType())) {
+                field.setAccessible(true);
+                field.set(instance, createInstance(field.getType()));
+            }
+
+        } catch (Exception exception) { throw new RuntimeException(exception); }
+    }
+
+    private <T> T createInstance(@NonNull Class<T> tClass)
+            throws InstantiationException, IllegalAccessException {
+
+        T t = tClass.newInstance();
+
+        for (Field field : tClass.getDeclaredFields()) {
+            injectDeclaredField(field, t);
+        }
+
+        return t;
     }
 }

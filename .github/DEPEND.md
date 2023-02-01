@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     // other depends
-    implementation 'net.clojars.suuft:lithe:2.0.1'
+    implementation 'works.naifu:lithe:2.1.0'
 }
 ```
 
@@ -33,8 +33,8 @@ Depend:
 ```xml
 
 <dependency>
-    <groupId>net.clojars.suuft</groupId>
+    <groupId>works.naifu</groupId>
     <artifactId>lithe</artifactId>
-    <version>2.0.1</version>
+    <version>2.1.0</version>
 </dependency>
 ```

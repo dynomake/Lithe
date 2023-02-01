@@ -22,4 +22,9 @@ public interface Injector {
      */
     <T> T getInstance(@NonNull Class<T> t);
 
+    /**
+     * It is called automatically (by framemork) to
+     * inject dependencies into registered singleton-instances.
+     */
+    void postInitialize();
 }
