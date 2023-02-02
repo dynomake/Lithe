@@ -23,6 +23,17 @@ public interface Injector {
     <T> T getInstance(@NonNull Class<T> t);
 
     /**
+     * Creating an instance of a class unregistered in the injector,
+     * but into which dependencies must be injected.
+     * * May return null, need an empty constructor.
+     *
+     * @param t - class
+     * @return - generated instance
+     */
+    <T> T createInstance(@NonNull Class<T> t);
+
+
+    /**
      * It is called automatically (by framemork) to
      * inject dependencies into registered singleton-instances.
      */

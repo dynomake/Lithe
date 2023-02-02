@@ -1,13 +1,12 @@
 package net.lithe.injectior.implementation;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import net.lithe.injectior.Inject;
 import net.lithe.injectior.Injector;
+import org.omg.CORBA.portable.RemarshalException;
 
 import java.lang.reflect.Field;
-import java.text.Format;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -59,15 +58,19 @@ public class RealInjector implements Injector {
         } catch (Exception exception) { throw new RuntimeException(exception); }
     }
 
-    private <T> T createInstance(@NonNull Class<T> tClass)
-            throws InstantiationException, IllegalAccessException {
+    public <T> T createInstance(@NonNull Class<T> tClass) {
+        try
+        {
+            T t = tClass.newInstance();
 
-        T t = tClass.newInstance();
+            for (Field field : tClass.getDeclaredFields()) {
+                injectDeclaredField(field, t);
+            }
 
-        for (Field field : tClass.getDeclaredFields()) {
-            injectDeclaredField(field, t);
+            return t;
         }
-
-        return t;
+        catch (Exception exception) {
+            throw new RuntimeException(exception);
+        }
     }
 }

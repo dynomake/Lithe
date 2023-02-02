@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     // other depends
-    implementation 'works.naifu:lithe:2.1.0'
+    implementation 'works.naifu:lithe:2.1.1'
 }
 ```
 
@@ -35,6 +35,6 @@ Depend:
 <dependency>
     <groupId>works.naifu</groupId>
     <artifactId>lithe</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
 </dependency>
 ```
