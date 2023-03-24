@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NonNull;
 import net.lithe.injectior.Inject;
 import net.lithe.injectior.Injector;
-import org.omg.CORBA.portable.RemarshalException;
-
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.Map;

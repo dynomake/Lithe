@@ -5,6 +5,7 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.UtilityClass;
 import net.lithe.adept.AbstractAdept;
+import net.lithe.automatic.GeneratedInjectorFactory;
 import net.lithe.injectior.Injector;
 import net.lithe.injectior.implementation.RealInjector;
 
@@ -34,5 +35,18 @@ public class Lithe {
 
         return injector;
     }
+    /**
+     * Creating an instance of the Injector class, which will
+     * have dependencies registered automatically in the class package.
+     *
+     * @param applicationClass - your main class
+     * @return - injector instance
+     */
+    public Injector createAutomaticInjector(Class<?> applicationClass) {
+        Injector injector = GeneratedInjectorFactory.createInjector(applicationClass);
 
+        injector.postInitialize();
+
+        return injector;
+    }
 }

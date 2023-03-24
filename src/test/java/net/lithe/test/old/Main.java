@@ -1,4 +1,4 @@
-package net.lithe.test;
+package net.lithe.test.old;
 
 import net.lithe.Lithe;
 import net.lithe.injectior.Injector;

@@ -1,8 +1,8 @@
-package net.lithe.test.impl;
+package net.lithe.test.old.impl;
 
 import net.lithe.injectior.Inject;
-import net.lithe.test.PotatoService;
-import net.lithe.test.SessionCounter;
+import net.lithe.test.old.PotatoService;
+import net.lithe.test.old.SessionCounter;
 
 public class MySessionCounter implements SessionCounter {
 

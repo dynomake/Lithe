@@ -1,5 +1,5 @@
 ## | `Lithe DI - Usage:`
-*You can found full example-code in:* [LINK](https://github.com/suuft/Lithe/tree/master/src/test/java/net/lithe/test)
+*You can found full example-code in:* [LINK](https://github.com/suuft/Lithe/tree/master/src/test/java/net/lithe/test/old)
 
 First, lets create an application class that ll run the JVM. E.i. - Main:
 ```java

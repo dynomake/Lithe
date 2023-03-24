@@ -1,6 +1,6 @@
-package net.lithe.test.impl;
+package net.lithe.test.old.impl;
 
-import net.lithe.test.PotatoService;
+import net.lithe.test.old.PotatoService;
 
 public class MyPotatoService implements PotatoService {
 
